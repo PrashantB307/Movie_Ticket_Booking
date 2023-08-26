@@ -50,3 +50,37 @@ function updateSelectedCount(){
 
 }
 
+// Step 4 :- Define function to set selected movie data in local storage
+
+function setMovieData(movieIndex, moviePrice){
+    localStorage.setItem("selectedMovieIndex", movieIndex);
+    localStorage.setItem("selectedMoviePrice", moviePrice);
+}
+
+//Step 5 :- Define function to populate UI with Local Storage data
+
+function populateUI() {
+    const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+
+    if(selectedSeats != null && selectedSeats.length > 0){
+        seats.forEach( (seat, index) => {
+            if(selectedSeats.indexOf(index) > -1){
+                seat.classList.add("selected");
+            }
+        });
+    }
+
+    const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+
+    if(selectedMovieIndex != null){
+        movieSelect.selectedIndex = selectedMovieIndex;
+    }
+}
+
+// Step 6 :- Initial setup of count , total, and UI based on save data
+
+populateUI();
+
+let ticketPrice = +movieSelect.value; 
+
+updateSelectedCount();
