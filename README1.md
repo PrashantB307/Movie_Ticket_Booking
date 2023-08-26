@@ -22,4 +22,11 @@
  
 - Save seats. movie and price to local storage so that UI is still populated on fresh
 
+# Prerequisites
+===============
+
+- HTML
+- CSS
+- JS Basic
+
 
