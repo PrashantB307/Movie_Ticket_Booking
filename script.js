@@ -31,3 +31,22 @@ container.addEventListener("click", e => {
     }
 });
 
+// Step 3 :- Define Function to update selected count and total
+
+function updateSelectedCount(){
+    
+    const selectedSeats = document.querySelectorAll(".row .seat.selected");
+
+    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+    
+    localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+
+    const selectedSeatsCounts = selectedSeats.length;
+
+    count.innerText = selectedSeatsCounts;
+    total.innerText = selectedSeatsCounts * ticketPrice;
+
+    setMovieData(movieSelect.selectedIndex, movieSelect.value);
+
+}
+
